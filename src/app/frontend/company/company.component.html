@@ -1,0 +1,38 @@
+
+<app-frontend-header></app-frontend-header>
+<!-- bradcam_area  -->
+<div class="myh">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="text-center">
+          <h3 style="font-size: 21px;">All Companies</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ bradcam_area  -->
+
+<!-- Start Sample Area -->
+    <!-- service_area  -->
+    <div class="service_area">
+      <div class="container">
+          <div class="row">
+            <tr>
+              <div class="col-md-6 col-lg-4" *ngFor="let company of categories | async">
+                  <div class="single_service">
+                      <div class="thumb">
+                        <a routerLink="/product/{{company.company_id}}"><img src="http://127.0.0.1:8080/uploads/{{company.company_image_filename}}" alt="" style="height: 250px; width: 350px;"></a>
+                      </div>
+                      <div class="service_info">
+                          <h3><a routerLink="/product/{{company.company_id}}">{{company.company_title}}</a></h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ service_area  -->
+<!-- End Sample Area -->
+<app-frontend-footer></app-frontend-footer>

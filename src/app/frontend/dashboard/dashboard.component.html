@@ -1,0 +1,44 @@
+
+<app-frontend-header></app-frontend-header>
+
+
+<!-- Start Sample Area -->
+    <!-- service_area  -->
+    <div class="service_area">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Advanced Tables -->
+              <div class="card">
+                <p class="frontend_h1">User Dashboard</p>
+                <div class="card-content">
+                  <div class="table-responsive">
+                    <div style="width: 50%; float:left; margin-right:30px" id="login-home">
+                      <ul  *ngIf="user_level_id === '2'">
+
+                        <li><a routerLink="/" style="cursor: pointer;">Home</a></li>
+                        <li><a routerLink="/dashboard" style="cursor: pointer;">Dashboard</a></li>
+                        <li><a routerLink="/about" style="cursor: pointer;">About</a></li>
+                        <li><a routerLink="/category" style="cursor: pointer;">All Categories</a></li>                                             
+                        <li><a routerLink="/product" style="cursor: pointer;">All Products</a></li>      
+                        <li><a routerLink="/product-cart" style="cursor: pointer;">My Cart</a></li>   
+                        <li><a routerLink="/order-report" style="cursor: pointer;">My Orders</a></li>
+                        <li><a routerLink="/register" style="cursor: pointer;">My Account</a></li>
+                        <li><a routerLink (click)="logout()" style="cursor: pointer;">Logout</a></li>
+                      </ul>
+                    </div>
+                    <div style="width: 45%; float: left;">
+                      <img src="/assets/images/login.jpg" style="width: 100%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!--/ service_area  -->
+<!-- End Sample Area -->
+<app-frontend-footer></app-frontend-footer>

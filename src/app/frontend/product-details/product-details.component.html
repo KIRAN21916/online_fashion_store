@@ -1,0 +1,139 @@
+
+<app-frontend-header></app-frontend-header>
+<!-- bradcam_area  -->
+<div class="myh">
+   <div class="container">
+     <div class="row">
+       <div class="col-xl-12">
+         <div class="text-center">
+           <h3 style="font-size: 21px;">{{product.product_title}}</h3>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!--/ bradcam_area  -->
+
+   <!--================Product Area =================-->
+   <section class="product_area single-post-area" style="padding: 50px 0px;">
+    <div class="container">
+      <div class="container-fliud">
+         <div class="wrapper row">
+            <div class="preview col-md-6">
+               
+               <div class="preview-pic tab-content">
+                 <div class="tab-pane active" id="pic-1"><img src="http://127.0.0.1:8080/uploads/{{product.product_image_filename}}" /></div>
+               </div>
+            </div>
+            <div class="details col-md-6">
+               <h3 class="product-title">{{product.product_title}}</h3>
+               <p class="product-description" style="height: 200px;  overflow: scroll;">{{product.product_description}}</p>
+               <h4 class="price">cost: <span>{{ product.product_cost }}</span></h4>
+               <h4 class="price">company : <span>{{ product.company_name }}</span></h4>
+               <h4 class="price">category : <span>{{ product.category_title }}</span></h4>
+               <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+               <div class="action">
+                  <button class="add-to-cart btn btn-default" type="button" (click)="addToCart()">add to cart</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <div class="row">
+          <div class="col-lg-12 posts-list">
+              <!-- Comments Listinng -->
+              <form (ngSubmit)="onSubmit()" ngNativeValidate  class="form-contact comment_form" action="#" id="commentForm">
+               <div class="comment-form" *ngIf="user_level_id === '2'">
+                 <h4>Enter Your Comment</h4>
+                    <div class="row">
+                       <div class="col-12">
+                          <div class="form-group">
+                             <input [(ngModel)]="commentFrm.comments_title" [value]="commentFrm.comments_title" class="form-control" name="comments_title" id="comments_title" type="text" placeholder="Enter Title" required>
+                          </div>
+                       </div>
+                       <div class="col-12">
+                          <div class="form-group">
+                             <textarea [(ngModel)]="commentFrm.comments_description" [value]="commentFrm.comments_description" class="form-control w-100" name="comments_description" id="comments_description" cols="30" rows="9"
+                                placeholder="Write your comment" required></textarea>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <button type="submit" class="button button-contactForm btn_1 boxed-btn">Submit Comment</button>
+                    </div>
+                 </div>
+                 <div class="comment-form" *ngIf="user_level_id !== '2'">
+                   <a class="boxed-btn3" style="color: #FFF !important;" href="/login">Login to post comment</a>
+                 </div>
+              </form>
+              <div class="comments-area">
+               <h4>All Comments</h4>
+              <div class="comment-list" *ngFor="let comment of comments | async">
+               <div class="single-comment justify-content-between d-flex">
+                  <div class="user justify-content-between d-flex">
+                     <div class="thumb">
+                        <img src="http://127.0.0.1:8080/uploads/{{product.product_image_filename}}" alt="">
+                     </div>
+                     <div class="desc">
+                        <div class="d-flex justify-content-between">
+                           <div class="d-flex align-items-center">
+                              <h5>
+                                 <a href="#">Posted By : {{comment.customer_name}}</a> On Date ({{comment.comments_date | date: 'dd MMMM,yyyy'}})
+                              </h5>
+                              
+                           </div>
+                        </div>
+                        <p class="comment">
+                           {{comment.comments_description}}
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Comment Section -->
+            </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!--================ Product Area end =================-->
+<app-frontend-footer></app-frontend-footer>

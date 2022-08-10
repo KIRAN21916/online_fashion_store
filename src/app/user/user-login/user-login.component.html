@@ -1,0 +1,31 @@
+<div class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class=" col-4 mx-auto login-sec">
+                <h2 class="text-center">Administrator Login</h2>
+                <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate  class="login-form">
+                    <div class="form-group">
+                        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                            {{ errorMessage }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control mx-auto" placeholder="Username" name="login_email"
+                        [(ngModel)]="form.login_email" >
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="password" class="form-control mx-auto" placeholder="Password" name="login_password"
+                        [(ngModel)]="form.login_password" >
+                    </div>
+                    <div class="form-check mx-auto d-block">
+                        <button type="reset" class="btn btn-primary float-right " style="width: 100px;">Reset</button>&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-success float-right" style="margin-right:10px; width: 100px;">Login</button>&nbsp;&nbsp;
+
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+</div>

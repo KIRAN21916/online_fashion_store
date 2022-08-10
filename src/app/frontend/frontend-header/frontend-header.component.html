@@ -1,0 +1,66 @@
+
+    <header>
+        <a href="index.html" style="font-size:23px; color:#000">
+            <span class="ltr"><marquee  scrollamount="15" heigth="1000"><div><font face="Forte" color="black" ><i> Stay Home And SHOP ONLINE.... Life isn't perfect but your OUTFIT can be</i></font>
+        </div></marquee></span>
+          </a>
+      <div class="header-area ">
+      
+
+          <!-- Header part-->
+          <div id="sticky-header" class="main-header-area navbar bg-dark">
+              <div class="container">
+                  <div class="header_bottom_border">
+                      <div class="row align-items-center">
+                          <div class="col-12 d-block d-lg-none">
+
+                          </div>
+                          <div class="col-xl-12 col-lg-12">
+                              <div class="main-menu  d-none d-lg-block">
+                                  <nav>
+                                      <ul id="navigation"  *ngIf="user_level_id !== '2'">
+                                          <li><a routerLink="/" style="cursor: pointer;">home</a></li>
+                                          <li><a routerLink="/about" style="cursor: pointer;">about</a></li>   
+                                          <li><a routerLink="/category" style="cursor: pointer;">All Categories</a></li>                                             
+                                          <li><a routerLink="/product" style="cursor: pointer;">All Products</a></li>      
+                                          <li><a href="#">Login <i class="ti-angle-down"></i></a>
+                                              <ul class="submenu">
+                                                <li><a routerLink="/login" style="cursor: pointer;">Customer Login</a></li>
+                                                <li><a routerLink="/admin/login" style="cursor: pointer;">Admin Login</a></li>
+                                              </ul>
+                                          </li>
+                                          <li><a routerLink="/register" style="cursor: pointer;">Registration</a></li>
+                                          <li><a routerLink="/contact" style="cursor: pointer;">Contact</a></li>
+                                          <li><a routerLink="/feedback" style="cursor: pointer;">Feedback</a></li>
+                                      </ul>
+
+                                      <ul id="navigation"  *ngIf="user_level_id === '2'">
+                                        <li><a routerLink="/" style="cursor: pointer;">home</a></li>
+                                        <li><a routerLink="/dashboard" style="cursor: pointer;">Dashboard</a></li>
+                                        <li><a routerLink="/about" style="cursor: pointer;">About</a></li>
+                                        <li><a routerLink="/category" style="cursor: pointer;">All Categories</a></li>                                             
+                                        <li><a routerLink="/product" style="cursor: pointer;">All Products</a></li>    
+                                        <li><a routerLink="/product-cart" style="cursor: pointer;">My Cart</a></li>     
+                                        <li><a href="#">My Administration <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a routerLink="/order-report" style="cursor: pointer;">My Orders</a></li>
+                                                <li><a routerLink="/register" style="cursor: pointer;">My Account</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a routerLink (click)="logout()" style="cursor: pointer;">Logout</a></li>
+                                    </ul>
+                                  </nav>
+                              </div>
+                          </div>
+                          <div class="col-12">
+                              <div class="mobile_menu d-block d-lg-none"></div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <!-- header-end -->

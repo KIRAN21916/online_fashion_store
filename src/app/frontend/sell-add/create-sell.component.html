@@ -1,0 +1,134 @@
+<div class="header">
+  <h1 class="page-header">
+    Sells Dashboard
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <div class="container">
+            <div *ngIf="!order_id">
+              <!-- Enter Customer Details -->
+              <form name="form" (ngSubmit)="saveOrder()" #f="ngForm">
+                <h2 class="theading">Enter Customer Name and Mobile to start sells</h2>
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                  Error:<br />{{ errorMessage }}
+                </div>
+                <div class="alert alert-success" *ngIf="isSuccessful">
+                  {{isUpdate ? "Asesor Actualizado": "Item added into list"}}
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="order_customer_name" placeholder="Enter Customer Name"
+                    [(ngModel)]="orderForm.order_customer_name" #product_stock="ngModel" [value]="1" required>
+                  </div>
+                  <div class="form-group col-md-4" style="margin: 0px 30px;">
+                    <input type="text" class="form-control" name="order_customer_mobile"
+                          [(ngModel)]="orderForm.order_customer_mobile" #product_stock="ngModel" [value]="1" placeholder="Enter Custoner Mobile" required>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="hidden" name="sell_order_id" [(ngModel)]="sellForm.sell_order_id" #product_stock="ngModel" [value]="1">
+                    <button class="btn btn-primary btn-block">Start Sell</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div *ngIf="order_id">
+              <h2 class="theading">Customer and Order Details</h2>
+              <table class="table table-striped table-hover" style="font-size: 13px;" *ngIf="sellDetails">
+                <tbody>
+                  <tr>
+                    <th>Order ID</th>
+                    <td>{{sellDetails.order_id}}</td>
+                    <th>Order Date</th>
+                    <td>{{sellDetails.order_date}}</td>
+                  </tr>
+                  <tr>
+                    <th>Customer Name</th>
+                    <td>{{sellDetails.order_customer_name}}</td>
+                    <th>Customer Mobile</th>
+                    <td>{{sellDetails.order_customer_mobile}}</td>
+                  </tr>
+                </tbody>  
+              </table>
+
+              <!-- Add Product into cart -->
+              <h2 class="theading">Add Items into Cart</h2>
+              <form name="form" (ngSubmit)="saveItemList()" #f="ngForm">
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                  Error:<br />{{ errorMessage }}
+                </div>
+                <div class="alert alert-success" *ngIf="isSuccessful">
+                  {{isUpdate ? "Asesor Actualizado": "Item added into list"}}
+                </div>
+                <table class="table table-striped table-hover" style="font-size: 13px;" *ngIf="sellDetails">
+                    <tr>
+                      <th>Select Product</th>
+                      <td>
+                        <select style="height: 35px; font-weight: bold;" type="text" class="form-control" name="sell_product_id"
+                          [(ngModel)]="sellForm.sell_product_id" #product_type_id="ngModel"
+                          [value]="product.product_type_id">
+                          <option value="0">Please Select</option>
+                          <option *ngFor='let product of product' [value]="product.product_id">
+                            {{product.product_title}}
+                          </option>
+                        </select>
+                      </td>
+                      <th>Enter Quantity</th>
+                      <td>
+                        <input type="number" class="form-control" placeholder="Enter Quantity" name="sell_units"
+                        [(ngModel)]="sellForm.sell_units" #product_stock="ngModel" [value]="product.sell_units">
+                      </td>
+                      <th>
+                        <input type="hidden" name="sell_order_id" [(ngModel)]="sellForm.sell_order_id"
+                          #product_stock="ngModel" [value]="product.product_stock">
+                        <button class="btn btn-danger btn-block">Add Item</button>
+                      </th>
+                    </tr>
+                </table>
+              </form>
+
+
+              <h2 class="theading">Order Item Details</h2>
+              <table class="table table-striped table-hover" style="font-size: 13px;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price Per Unit</th>
+                    <th scope="col">Total Units</th>
+                    <th scope="col">Total Cost</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let sell of sell'>
+                    <td>{{sell.product_id}}</td>
+                    <td>{{sell.product_title}}</td>
+                    <td>{{sell.sell_price_per_unit}}</td>
+                    <td>{{sell.sell_units}} Items</td>
+                    <td>{{sell.sell_total_cost}}</td>
+                    <td>
+                      <button class="btn btn-sm btn-danger glyphicon glyphicon-trash" (click)="delete(sell.sell_id)" style="padding: 5px; font-size: 16px;"></button></td>
+                  </tr>
+                  <tr *ngIf="sellDetails">
+                    <th colspan="4" style="text-align: right;">Total Amount : </th>
+                    <th colspan="2">{{order_total}}</th>
+                  </tr>
+                  <tr *ngIf="order_total">
+                    <th colspan="6" style="text-align: right;">
+                      <button class="btn btn-primary" (click)="saveSells()">Save Sell Details</button>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="header">
+  <h1 class="page-header">
+    All Category Report
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <div class="table-responsive">
+            <div style="text-align: right; margin: 10px;"><a  *ngIf="user_level_id === '1'" class="btn btn-sm btn-success" style="padding: 5px; font-size: 16px;" routerLink="/admin/category/add">Add New Category</a>&nbsp;</div>
+            <table class="table table-striped table-hover" style="font-size: 13px;">
+              <thead class="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of categories | async">
+                  <td>{{category.category_id}}</td>
+                  <td><img src="http://127.0.0.1:8080/uploads/{{category.category_image_filename}}" style="width: 70px; height: 70px;"></td>
+                  <td>{{category.category_title}}</td>
+                  <td>
+                    <a  *ngIf="user_level_id === '1'" class="btn btn-sm btn-primary " style="padding: 5px; font-size: 16px;" routerLink="/admin/category/update-category/{{category.category_id}}">&#9998;update</a>&nbsp;
+                    <button  *ngIf="user_level_id === '1'" class="btn btn-sm btn-danger " (click)="deleteCategory(category.category_id)" style="padding: 5px; font-size: 16px;">&#x1F5D1;delete</button>                  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

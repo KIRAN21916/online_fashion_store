@@ -1,0 +1,14 @@
+runtime: nodejs16
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "team2"
+
+handlers:
+- url: /
+  static_files: dist/online_fashion_store_angular/index.html
+  upload: dist/online_fashion_store_angular/index.html
+
+- url: /
+  static_dir: dist/online_fashion_store_angular

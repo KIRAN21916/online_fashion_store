@@ -1,0 +1,43 @@
+<div class="header">
+  <h1 class="page-header">
+    All Contacts Report
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <div class="table-responsive">
+            
+            <table class="table table-striped table-hover" style="font-size: 13px;">
+              <thead class="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let contacts of contacts | async">
+                  <td>{{contacts.contact_id}}</td>
+                  <td>{{contacts.contact_name}}</td>
+                  <td>{{contacts.contact_email}}</td>
+                  <td>{{contacts.contact_subject}}</td>
+                  <td>{{contacts.contact_message}}</td>
+                  <td>
+                    <button  *ngIf="user_level_id === '1'" class="btn btn-sm btn-danger glyphicon glyphicon-trash" (click)="deleteContacts(contacts.contact_id)" style="padding: 5px; font-size: 16px;"></button>                  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

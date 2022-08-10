@@ -1,0 +1,33 @@
+<div class="header">
+  <h1 class="page-header">
+  Online Nursery Store Admin Panel
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <div class="table-responsive">
+            <div style="width: 50%; float:left; margin-right:30px" id="login-home">
+              <ul  *ngIf="user_level_id === '1'">
+                <!-- <li><a routerLink="/admin/company">Company Management</a></li> -->
+                <li><a routerLink="/admin/category">Category Management</a></li>
+                <li><a routerLink="/admin/product">Product Management</a></li>
+                <li><a routerLink="/admin/orders">All Orders</a></li>
+                <li><a routerLink="/admin/customer">Customer Management</a></li>
+                <li><a routerLink="/admin/contact">Cotact Us Report</a></li>
+                <li><a routerLink="/admin/feedback">Feedback Report</a></li>
+                <li><a routerLink="#" (click)="logout()">Logout</a></li>
+              </ul>
+            </div>
+            <div style="width: 45%; float: left;">
+              <img src="/assets/images/login.jpg" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

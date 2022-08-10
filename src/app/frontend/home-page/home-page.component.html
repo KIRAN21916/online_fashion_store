@@ -1,0 +1,73 @@
+<app-frontend-header></app-frontend-header>
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="single_slider  d-flex align-items-center slider_bg_1">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-8">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+
+   <!-- Start Sample Area -->
+<section class="sample-text-area">
+    <div class="container box_1170">
+    <h3 class="text-heading">Fashion Store</h3>
+    <div class="categoires" style="background-color:grey; padding: 17px; margin-bottom: 35px;">
+        <div class="container">
+            <a href="#"><div class="col-md-4">
+                <img src="/assets/images/1.png" style="height: 155px; width: 100%;">
+                <h3>The Fashion Store</h3>
+                <p style="text-align: center; color: white;">Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser </p>			 					
+            </div></a>
+            <a href="#"><div class="col-md-4 ">
+                <img src="/assets/images/customer.jpg" style="height: 155px; width: 100%;">
+                <h3>Customer Portal</h3>
+                <p style="text-align: center ;color:white">A forum gives a voice to your customers and answers their questions while creating a moderated, searchable knowledge base. An active developer community will pay for itself in fewer support calls while persuading potential customers that your current user base is active, productive, and ultimately happy. </p>				 					
+            </div></a>
+            <a href="#"><div class="col-md-4">
+                <img src="/assets/images/1.jpg" style="height: 155px; width: 100%;">
+                <h3>Admin Portal</h3>
+                <p style="text-align: center;color: white">The Online Shopping is a web based application intended for online retailers. The main objective of this application is to make it interactive and its ease of use. It would make searching, viewing and selection of a product easier. </p>				 					
+            </div></a>
+        </div>
+
+   </div>
+   <!--
+   <h3 class="text-heading">About Online Fashion Store</h3>
+    <p class="sample-text">
+        Fashion Items ordering is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser or a mobile app. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine, which displays the same product's availability and pricing at different e-retailers. As of 2020, customers can shop online using a range of different computers and devices, including desktop computers, laptops, tablet computers and smartphones.
+An online shop evokes the physical analogy of buying products or services at a regular "bricks-and-mortar" retailer or shopping center; the process is called business-to-consumer (B2C) online shopping. When an online store is set up to enable businesses to buy from another businesses, the process is called business-to-business (B2B) online shopping. A typical online store enables the customer to browse the firm's range of products and services.
+    </p>
+    -->
+    </div>
+    </section>
+    <!-- End Sample Area -->
+    
+
+    <div class="service_area" style="border-top: 1px solid #CCCCCC;">
+        <div class="container">
+            <h3 class="text-heading allign-center">Shop By Category</h3>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="service_active">
+                        <div class="col-md-6 col-lg-4" *ngFor="let category of categories | async">
+                            <div class="single_service">
+                                <div class="thumb">
+                                    <img src="http://127.0.0.1:8080/uploads/{{category.category_image_filename}}" alt="" style="height: 250px; width: 350px;">
+                                </div>
+                                <div class="service_info">
+                                    <h3><a routerLink="/product/{{category.category_id}}">{{category.category_title}}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<app-frontend-footer></app-frontend-footer>
